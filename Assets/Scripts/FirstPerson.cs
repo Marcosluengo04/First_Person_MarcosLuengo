@@ -22,7 +22,13 @@ public class FirstPerson : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal"); //h= 0, h=-1 h=1
         float v = Input.GetAxisRaw("Vertical");
         Vector3 movimieto = new Vector3(h, 0, v).normalized;
-        controller.Move(movimieto * velocidadMovimiento * Time.deltaTime);
+        float anguloRotacion = Mathf.Atan2(movimieto.x , movimieto.z) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
+        if (movimieto.magnitude > 0)
+        {
+            transform.eulerAngles = new Vector3(0, anguloRotacion, 0);
+            controller.Move(movimieto * velocidadMovimiento * Time.deltaTime);
+        }
+        
 
     }
 }
