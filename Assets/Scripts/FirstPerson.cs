@@ -7,7 +7,9 @@ using UnityEngine.Rendering;
 public class FirstPerson : MonoBehaviour
 {
     [SerializeField] private float velocidadMovimiento;
-    [SerializeField] private  movimientoVertical; 
+    [SerializeField] private float factorGraveda;
+
+    //[SerializeField] private  movimientoVertical; 
 
     CharacterController controller;
     // Start is called before the first frame update
@@ -33,19 +35,19 @@ public class FirstPerson : MonoBehaviour
             controller.Move(movimieto * velocidadMovimiento * Time.deltaTime);
         }
         
-        AplicarGravedad();
+        //AplicarGravedad();
     }
 
 
 
-    private void AplicarGravedad() 
-    {
-        movimientoVertical.y += factorGravedad * Time.deltaTime;
-        controller.Move(movimientoVertical * Time.deltaTime);
-    }
+    //private void AplicarGravedad() 
+    //{
+    //    movimientoVertical.y += factorGravedad * Time.deltaTime;
+    //    controller.Move(movimientoVertical * Time.deltaTime);
+    //}
 
-    private void EnSuelo() 
-    {
-        Physics.CheckSphere(pies.position, radioDetencion);
-    }
+    //private void EnSuelo() 
+    //{
+    //    Physics.CheckSphere(pies.position, radioDetencion);
+    //}
 }
